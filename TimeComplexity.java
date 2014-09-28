@@ -112,6 +112,7 @@ public class TimeComplexity {
     }
     
     public static void main(String[] args) {
+        // REMEMBER RELATIVE PATH
         String inputFile = "input.txt";
         
         TimeComplexity tc = new TimeComplexity(inputFile);
