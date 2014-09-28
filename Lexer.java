@@ -12,6 +12,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Stack;
 import java.util.logging.Level;
@@ -47,8 +48,10 @@ public class Lexer {
 //        Stack loopStack = new Stack();
         ForLoop alphaLoop;
 //        Boolean foundLoopFlag = false;
+        Iterator lineIter = lines.iterator();
         
-        for (String line: lines) {
+        while (lineIter.hasNext()) {
+            String line = lineIter.next().toString();
             ArrayList<Parser.Token> tokens = parser.parse(line);
             for (Parser.Token token: tokens) {
                 if (token.type == Parser.TokenType.FOR) {
