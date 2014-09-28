@@ -18,8 +18,8 @@ public class Parser {
         VARIABLE("[a-zA-Z][a-zA-Z0-9_]*"),
         NUMBER("[0-9]+"),
         WHITESPACE("[ \t\f\r\n]+"),
-        OPENBRACKET("\\{"),
-        CLOSEBRACKET("\\}"),
+        OPENBRACES("\\{"),
+        CLOSEBRACES("\\}"),
         OPENPARENTHESIS("\\("),
         CLOSEPARENTHESIS("\\)"),
         DELIMITER(";");
@@ -89,11 +89,11 @@ public class Parser {
             } else if (matcher.group(TokenType.NUMBER.name()) != null) {
                 tokens.add(new Token(TokenType.NUMBER, matcher.group(TokenType.NUMBER.name()), matcher.start()));
                 continue;
-            } else if (matcher.group(TokenType.OPENBRACKET.name()) != null) {
-                tokens.add(new Token(TokenType.OPENBRACKET, matcher.group(TokenType.OPENBRACKET.name()), matcher.start()));
+            } else if (matcher.group(TokenType.OPENBRACES.name()) != null) {
+                tokens.add(new Token(TokenType.OPENBRACES, matcher.group(TokenType.OPENBRACES.name()), matcher.start()));
                 continue;
-            } else if (matcher.group(TokenType.CLOSEBRACKET.name()) != null) {
-                tokens.add(new Token(TokenType.CLOSEBRACKET, matcher.group(TokenType.CLOSEBRACKET.name()), matcher.start()));
+            } else if (matcher.group(TokenType.CLOSEBRACES.name()) != null) {
+                tokens.add(new Token(TokenType.CLOSEBRACES, matcher.group(TokenType.CLOSEBRACES.name()), matcher.start()));
                 continue;
             } else if (matcher.group(TokenType.OPENPARENTHESIS.name()) != null) {
                 tokens.add(new Token(TokenType.OPENPARENTHESIS, matcher.group(TokenType.OPENPARENTHESIS.name()), matcher.start()));
